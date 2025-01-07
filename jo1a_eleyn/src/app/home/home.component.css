@@ -65,4 +65,42 @@
       font-size: 0.9rem;
     }
   }
-  
+/* Initial state */
+.home-section .text-content,
+.home-section .image-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Trigger animation when the section is targeted */
+.home-section:target .text-content,
+.home-section:target .image-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth scrolling for navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Add a default fade-in animation for when the page loads */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-section .text-content {
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.home-section .image-content {
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
